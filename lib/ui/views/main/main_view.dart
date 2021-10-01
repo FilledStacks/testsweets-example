@@ -1,6 +1,7 @@
-import 'package:example/ui/main/main_viewmodel.dart';
-import 'package:example/ui/post/post_view.dart';
-import 'package:example/ui/todo/todo_view.dart';
+import 'package:example/ui/shared/app_colors.dart';
+import 'package:example/ui/views/main/main_viewmodel.dart';
+import 'package:example/ui/views/post/post_view.dart';
+import 'package:example/ui/views/todo/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -14,19 +15,34 @@ class MainView extends StatelessWidget {
         body: getViewForIndex(model.currentIndex),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.white,
+          backgroundColor: kcMediumGrey,
           currentIndex: model.currentIndex,
           onTap: (index) {
             model.setIndex(index);
           },
           items: [
             BottomNavigationBarItem(
-              label: 'post',
-              icon: Icon(Icons.post_add),
+              icon: Icon(
+                Icons.post_add,
+                color: Colors.white,
+              ),
+              label: '',
+              activeIcon: Icon(
+                Icons.post_add,
+                color: kcPrimaryColor,
+              ),
+              backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
-              label: 'Todo',
-              icon: Icon(Icons.list),
+              label: '',
+              icon: Icon(
+                Icons.list,
+                color: Colors.white,
+              ),
+              activeIcon: Icon(
+                Icons.list,
+                color: kcPrimaryColor,
+              ),
             ),
           ],
         ),

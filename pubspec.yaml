@@ -30,7 +30,10 @@ dependencies:
 
   stacked:
   stacked_services:
+  flutter_hooks:
   logger:
+
+  email_validator:
 
 dev_dependencies:
   flutter_test:
