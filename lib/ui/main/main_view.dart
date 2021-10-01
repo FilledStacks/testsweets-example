@@ -1,10 +1,8 @@
-import 'package:example/app/app.router.dart';
 import 'package:example/ui/main/main_viewmodel.dart';
 import 'package:example/ui/post/post_view.dart';
 import 'package:example/ui/todo/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:testsweets/testsweets.dart';
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
@@ -20,10 +18,6 @@ class MainView extends StatelessWidget {
           currentIndex: model.currentIndex,
           onTap: (index) {
             model.setIndex(index);
-            TestSweetsNavigatorObserver.instance.setBottomNavIndex(
-              btmNavBarName: Routes.mainView,
-              index: index,
-            );
           },
           items: [
             BottomNavigationBarItem(

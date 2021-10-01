@@ -23,14 +23,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_driver:
-    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  testsweets:
-    path: ../
+
   stacked:
   stacked_services:
   logger:
@@ -40,8 +37,6 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  testsweets_generator:
-    path: ../../testsweets_generator
 
   stacked_generator:
 
