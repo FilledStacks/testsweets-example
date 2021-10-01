@@ -1,0 +1,3 @@
+projectId=5EEL6eC4M7DK80Tu49bd
+apiKey=2340a3ce-e2b9-4dec-be46-ced711d5f97c
+flutterBuildCommand= --debug --dart-define=FLUTTER_DRIVER=true
