@@ -1,3 +1,4 @@
+import 'package:example/ui/shared/app_colors.dart';
 import 'package:example/ui/views/todo/todo_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -9,22 +10,16 @@ class TodoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TodoViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
-        backgroundColor: Colors.redAccent,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(model.todo),
-              SizedBox(height: 40),
-              SizedBox(
-                height: 50,
-                width: 200,
-                child: ElevatedButton(
-                  onPressed: model.postTodo,
-                  child: Text('Add New Todo'),
-                ),
-              )
-            ],
+        floatingActionButton: FloatingActionButton(
+          onPressed: model.createIndexedTodo,
+        ),
+        backgroundColor: kcDarkGreyColor,
+        body: ListView.builder(
+          itemCount: model.todoItems.length,
+          itemBuilder: (context, index) => Container(
+            height: 50,
+            alignment: Alignment.center,
+            child: Text(model.todoItems[index]),
           ),
         ),
       ),
