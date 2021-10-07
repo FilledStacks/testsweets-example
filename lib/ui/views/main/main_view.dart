@@ -1,9 +1,11 @@
+import 'package:example/app/app.router.dart';
 import 'package:example/ui/shared/app_colors.dart';
 import 'package:example/ui/views/main/main_viewmodel.dart';
 import 'package:example/ui/views/post/post_view.dart';
 import 'package:example/ui/views/todo/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:testsweets/testsweets.dart';
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
@@ -18,6 +20,10 @@ class MainView extends StatelessWidget {
           backgroundColor: kcMediumGrey,
           currentIndex: model.currentIndex,
           onTap: (index) {
+            TestSweetsNavigatorObserver.instance.setBottomNavIndex(
+              index: index,
+              viewName: Routes.mainView,
+            );
             model.setIndex(index);
           },
           items: [
