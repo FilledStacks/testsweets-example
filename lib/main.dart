@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       builder: (context, child) => TestSweetsOverlayView(
-        projectId: 'EEBojwAB65X5OgHRqwPT',
+        projectId: '4BwobHaZRWjMn1hHdgqv',
         child: child!,
         captureWidgets: !DRIVE_MODE,
       ),

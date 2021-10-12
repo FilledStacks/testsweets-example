@@ -20,10 +20,6 @@ class MainView extends StatelessWidget {
           backgroundColor: kcMediumGrey,
           currentIndex: model.currentIndex,
           onTap: (index) {
-            TestSweetsNavigatorObserver.instance.setBottomNavIndex(
-              index: index,
-              viewName: Routes.mainView,
-            );
             model.setIndex(index);
           },
           items: [
@@ -58,6 +54,10 @@ class MainView extends StatelessWidget {
   }
 
   Widget getViewForIndex(int index) {
+    TestSweetsNavigatorObserver.instance.setBottomNavIndex(
+      index: index,
+      viewName: Routes.mainView,
+    );
     switch (index) {
       case 0:
         return PostView();
