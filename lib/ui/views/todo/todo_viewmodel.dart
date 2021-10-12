@@ -9,7 +9,7 @@ class TodoViewModel extends BaseViewModel {
   List<String> get todoItems => _todoItems;
 
   void createIndexedTodo() {
-    _todoItems.add('Todo $_currentIndex');
+    _todoItems.add('Todo broken $_currentIndex');
     _currentIndex++;
     notifyListeners();
   }
