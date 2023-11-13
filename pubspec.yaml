@@ -36,6 +36,8 @@ dependencies:
   email_validator:
   permission_handler: ^11.1.0
 
+  testsweets: ^1.8.9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

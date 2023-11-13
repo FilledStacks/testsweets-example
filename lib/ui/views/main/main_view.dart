@@ -1,9 +1,11 @@
+import 'package:example/app/app.router.dart';
 import 'package:example/ui/shared/app_colors.dart';
 import 'package:example/ui/views/main/main_viewmodel.dart';
 import 'package:example/ui/views/post/post_view.dart';
 import 'package:example/ui/views/todo/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:testsweets/testsweets.dart';
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
@@ -52,6 +54,11 @@ class MainView extends StatelessWidget {
   }
 
   Widget getViewForIndex(int index) {
+    // TestSweets bottom nav tracker
+    TestSweetsNavigatorObserver.instance.setBottomNavIndex(
+      viewName: Routes.mainView,
+      index: index,
+    );
     switch (index) {
       case 0:
         return PostView();

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:testsweets/testsweets.dart';
 
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
 
 Future<void> main() async {
   setupLocator();
+  await setupTestSweets();
   runApp(MyApp());
 }
 
@@ -20,6 +22,14 @@ class MyApp extends StatelessWidget {
               displayColor: Colors.white,
             ),
       ),
+      builder: (context, child) => TestSweetsOverlayView(
+        projectId: 'mqAdFjIE3CTunAszoP5M', // <==== Use your ProjectId here
+        child: child!,
+        captureWidgets: true,
+      ),
+      navigatorObservers: [
+        TestSweetsNavigatorObserver.instance,
+      ],
       initialRoute: Routes.loginView,
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
