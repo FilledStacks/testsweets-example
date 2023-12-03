@@ -30,7 +30,7 @@ class LoginViewModel extends BaseViewModel {
 
     await runBusyFuture(Future.delayed(const Duration(seconds: 3)));
 
-    await _navigationService.replaceWith(Routes.mainView);
+    await _navigationService.replaceWithMediaPermissionsView();
   }
 
   bool _validateDetails(String userName, String passoword) {
