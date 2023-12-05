@@ -37,7 +37,7 @@ dependencies:
   permission_handler: ^11.1.0
 
   testsweets:
-    path: /Users/danemackier/Code/packages/testsweets/packages/testsweets
+    path: /Users/danemackier/Code/testsweets/package/packages/testsweets
 
 
 dev_dependencies:

@@ -690,10 +690,10 @@ packages:
   testsweets:
     dependency: "direct main"
     description:
-      path: "/Users/danemackier/Code/packages/testsweets/packages/testsweets"
+      path: "/Users/danemackier/Code/testsweets/package/packages/testsweets"
       relative: false
     source: path
-    version: "1.11.0"
+    version: "1.11.1"
   timing:
     dependency: transitive
     description:
