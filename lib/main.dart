@@ -6,8 +6,8 @@ import 'app/app.locator.dart';
 import 'app/app.router.dart';
 
 Future<void> main() async {
-  setupLocator();
   await setupTestSweets();
+  setupLocator();
   runApp(MyApp());
 }
 
@@ -23,12 +23,11 @@ class MyApp extends StatelessWidget {
             ),
       ),
       builder: (context, child) => TestSweetsOverlayView(
-        projectId: 'mqAdFjIE3CTunAszoP5M',
         child: child!,
-        captureWidgets: !DRIVE_MODE,
+        projectId: 'hBPApL0mJHTofHNRipeq',
       ),
       navigatorObservers: [
-        TestSweetsNavigatorObserver.instance,
+        TestSweetsNavigatorObserver(),
       ],
       initialRoute: Routes.loginView,
       navigatorKey: StackedService.navigatorKey,

@@ -54,11 +54,11 @@ class MainView extends StatelessWidget {
   }
 
   Widget getViewForIndex(int index) {
-    // TestSweets bottom nav tracker
     TestSweetsNavigatorObserver.instance.setBottomNavIndex(
-      viewName: Routes.mainView,
       index: index,
+      viewName: Routes.mainView,
     );
+
     switch (index) {
       case 0:
         return PostView();
