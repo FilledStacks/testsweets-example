@@ -52,7 +52,6 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: ./gradlew connectedCheck
       
       - name: Run TestSweets Test
         run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
