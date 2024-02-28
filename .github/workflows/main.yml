@@ -31,7 +31,7 @@ jobs:
 
       - name: 'Build APK'
         id: buildApk
-        run: 'flutter build apk --debug && echo >> "::set-output apkPath=built-apk::build/app/outputs/flutter-apk/"'
+        run: 'flutter build apk --debug
 
 
       - name: Enable KVM
@@ -56,4 +56,4 @@ jobs:
           script: ./gradlew connectedCheck
       
       - name: Run TestSweets Test
-        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a ${{ steps.buildApk.outputs.apkPath }}
+        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
