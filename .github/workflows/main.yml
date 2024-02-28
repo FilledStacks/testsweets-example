@@ -16,11 +16,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: 'Set up JDK'
-        uses: 'actions/setup-java@v1'
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+      # - name: 'Set up JDK'
+      #   uses: 'actions/setup-java@v1'
+      #   with:
+      #     distribution: 'temurin'
+      #     java-version: '21'
 
       - uses: subosito/flutter-action@v1.5.3
         with:
@@ -52,7 +52,7 @@ jobs:
       - name: Start Emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 29
+          api-level: 31
           script: ./gradlew connectedCheck
       
       - name: Run TestSweets Test
