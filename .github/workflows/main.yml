@@ -22,36 +22,34 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      # - uses: subosito/flutter-action@v1.5.3
-      #   with:
-      #     channel: "stable"
+      - uses: subosito/flutter-action@v1.5.3
+        with:
+          channel: "stable"
 
-      # - name: 'Get all packages'
-      #   run: flutter pub get
+      - name: 'Get all packages'
+        run: flutter pub get
 
-      # - name: 'Build APK'
-      #   id: buildApk
-      #   run: 'flutter build apk --debug'
+      - name: 'Build APK'
+        id: buildApk
+        run: 'flutter build apk --debug'
 
-      # # - name: Enable KVM
-      # #   run: |
-      # #     echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-      # #     sudo udevadm control --reload-rules
-      # #     sudo udevadm trigger --name-match=kvm
-
-      # - name: Set up Homebrew
-      #   id: set-up-homebrew
-      #   uses: Homebrew/actions/setup-homebrew@master
-      
-      # - name: Install TestSweets
+      # - name: Enable KVM
       #   run: |
-      #     brew tap filledstacks/tap
-      #     brew install testsweets
+      #     echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+      #     sudo udevadm control --reload-rules
+      #     sudo udevadm trigger --name-match=kvm
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
       
-      - name: Start Emulator
+      - name: Install TestSweets
+        run: |
+          brew tap filledstacks/tap
+          brew install testsweets
+      
+      - name: Start Emulator and Run TestSweets
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-      
-      - name: Run TestSweets Test
-        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
+          script: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
