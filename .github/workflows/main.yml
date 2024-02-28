@@ -31,8 +31,7 @@ jobs:
 
       - name: 'Build APK'
         id: buildApk
-        run: 'flutter build apk --debug
-
+        run: 'flutter build apk --debug'
 
       - name: Enable KVM
         run: |
