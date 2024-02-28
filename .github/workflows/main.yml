@@ -6,7 +6,7 @@ on:
 
 jobs:
   testsweets_tests:
-    runs-on: macos-latest-large
+    runs-on: macos-latest-xlarge
 
     outputs:
       built-apk: ${{ steps.buildApk.outputs.apkPath }}
