@@ -6,7 +6,7 @@ on:
 
 jobs:
   testsweets_tests:
-    runs-on: macos-latest-xlarge
+    runs-on: macos-latest-large
 
     outputs:
       built-apk: ${{ steps.buildApk.outputs.apkPath }}
@@ -51,4 +51,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
-          script: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
+          script: echo "Android Emulator Running"
+      
+      - name: Run TestSweets Tests
+        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
