@@ -16,12 +16,11 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: 'Set up JDK 11'
+      - name: 'Set up JDK'
         uses: 'actions/setup-java@v1'
         with:
-          java-version: '11'
           distribution: 'temurin'
-          # Set up JDK 11 using the "actions/setup-java" action.
+          java-version: '21'
 
       - uses: subosito/flutter-action@v1.5.3
         with:
@@ -57,4 +56,4 @@ jobs:
           script: ./gradlew connectedCheck
       
       - name: Run TestSweets Test
-        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a ${{ steps.build.outputs.built-apk }}
+        run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a ${{ steps.buildApk.outputs.apkPath }}
