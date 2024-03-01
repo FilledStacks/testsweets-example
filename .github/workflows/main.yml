@@ -6,31 +6,32 @@ on:
 
 jobs:
   testsweets_tests:
-    runs-on: macos-latest-large
+    runs-on: macos-14 # use macos-14 insted of macos-latest-large as that is based on M1 (  https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#:~:text=N/A-,macOS,N/A,-Standard%20GitHub%2Dhosted ) 
 
-    outputs:
-      built-apk: ${{ steps.buildApk.outputs.apkPath }}
+    # outputs:
+    #   built-apk: ${{ steps.buildApk.outputs.apkPath }}
 
     steps:
       - name: checkout
         uses: actions/checkout@v4
 
       - name: 'Set up JDK'
-        uses: 'actions/setup-java@v1'
+        uses: actions/setup-java@v1
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          java-version: '12.x'
 
-      - uses: subosito/flutter-action@v1.5.3
+      - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
 
-      - name: 'Get all packages'
+      - name: Check Flutter version
+        run: flutter doctor -v
+      - name: Get all packages Flutter
         run: flutter pub get
-
-      - name: 'Build APK'
+      - name: Flutter Build debug APK
         id: buildApk
-        run: 'flutter build apk --debug'
+        run: flutter build apk --debug --dart-define=FORCE_CAPTURE_MODE=false
+
 
       # - name: Enable KVM
       #   run: |
@@ -38,20 +39,20 @@ jobs:
       #     sudo udevadm control --reload-rules
       #     sudo udevadm trigger --name-match=kvm
 
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+      - name: Setup Homebrew
+        run: |
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       
       - name: Install TestSweets
         run: |
           brew tap filledstacks/tap
           brew install testsweets
       
-      - name: Start Emulator and Run TestSweets
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 29
-          script: echo "Android Emulator Running"
+      # - name: Start Emulator and Run TestSweets # TODO: Currently we have to find the Alternative for this only
+      #   uses: reactivecircus/android-emulator-runner@v2
+      #   with:
+      #     api-level: 29
+      #     script: echo "Android Emulator Running"
       
       - name: Run TestSweets Tests
         run: testsweets run -p qA5ua2TOgxBtMGcSVBGE -a build/app/outputs/flutter-apk/app-debug.apk
