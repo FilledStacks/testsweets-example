@@ -53,6 +53,10 @@ jobs:
       #   with:
       #     api-level: 29
       #     script: echo "Android Emulator Running"
+
+      - uses: futureware-tech/simulator-action@v3
+        with:
+          model: 'iPhone 8'
       
       - name: TestSweets Authenticate
         run: testsweets authenticate -e ${{ secrets.TESTSWEETS_EMAIL_ACCOUNT }} -p ${{ secrets.TESTSWEETS_PASSWORD }}
