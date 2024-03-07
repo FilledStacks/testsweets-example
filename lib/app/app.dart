@@ -1,3 +1,4 @@
+import 'package:example/services/analytics_service.dart';
 import 'package:example/services/permission_service.dart';
 import 'package:example/ui/views/login/login_view.dart';
 import 'package:example/ui/views/main/main_view.dart';
@@ -21,6 +22,7 @@ import 'package:stacked_services/stacked_services.dart';
   dependencies: [
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: PermissionService),
+    LazySingleton(classType: AnalyticsService),
     // @stacked-service
   ],
   logger: StackedLogger(),

@@ -2,13 +2,15 @@ import 'package:email_validator/email_validator.dart';
 import 'package:example/app/app.locator.dart';
 import 'package:example/app/app.logger.dart';
 import 'package:example/app/app.router.dart';
+import 'package:example/services/analytics_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class LoginViewModel extends BaseViewModel {
   var log = getLogger('LoginViewModel');
 
-  final NavigationService _navigationService = locator<NavigationService>();
+  final _navigationService = locator<NavigationService>();
+  final _analyticsService = locator<AnalyticsService>();
 
   String? _validationMessage;
 
@@ -27,6 +29,8 @@ class LoginViewModel extends BaseViewModel {
     required String password,
   }) async {
     if (!_validateDetails(userName, password)) return;
+
+    _analyticsService.logEvent(name: 'Login', properties: {'email': userName});
 
     await runBusyFuture(Future.delayed(const Duration(seconds: 3)));
 
@@ -54,6 +58,10 @@ class LoginViewModel extends BaseViewModel {
   }
 
   void navigateToSignUp() {
+    _analyticsService.logEvent(name: 'Link Tap', properties: {
+      'title': 'Create Account',
+      'destination': 'signup',
+    });
     _navigationService.navigateTo(Routes.signUpView);
   }
 

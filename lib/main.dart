@@ -4,6 +4,7 @@ import 'package:testsweets/testsweets.dart';
 
 import 'app/app.locator.dart';
 import 'app/app.router.dart';
+import 'services/analytics_service.dart';
 
 Future<void> main() async {
   await setupTestSweets();
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       navigatorObservers: [
         TestSweetsNavigatorObserver(),
+        AnalyticsNavigatorObserver(),
       ],
       initialRoute: Routes.loginView,
       navigatorKey: StackedService.navigatorKey,

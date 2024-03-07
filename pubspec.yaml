@@ -36,7 +36,8 @@ dependencies:
   email_validator:
   permission_handler: ^11.1.0
 
-  testsweets: ^1.16.1
+  testsweets: #^1.16.1
+    path: ../package/packages/testsweets
 
 
 dev_dependencies:
