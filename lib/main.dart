@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       builder: (context, child) => TestSweetsOverlayView(
         child: child!,
-        projectId: 'hBPApL0mJHTofHNRipeq',
+        projectId: 'qA5ua2TOgxBtMGcSVBGE',
       ),
       navigatorObservers: [
         TestSweetsNavigatorObserver(),
