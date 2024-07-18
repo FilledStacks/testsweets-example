@@ -829,13 +829,14 @@ packages:
       path: "../package/packages/testsweets"
       relative: true
     source: path
-    version: "1.16.1"
+    version: "2.0.0-beta.1"
   testsweets_shared:
     dependency: transitive
     description:
-      path: "../package/packages/testsweets_shared"
-      relative: true
-    source: path
+      name: testsweets_shared
+      sha256: "1882ad0d913764d03343f4aac22f205022a4dcf33e9ed1d34e418de6f750a0b7"
+      url: "https://pub.dev"
+    source: hosted
     version: "1.0.0"
   timing:
     dependency: transitive
